@@ -77,6 +77,26 @@ def tax_liability(income):
     return liability
 
 def prob6a():
+    print("\nProblem 6a:")
+    A = [1,2,3,4,5,6,7]
+    B = [5,5,5,5,5,5,5]
+
+    print("A + B = {}".format(A+B))
+    try:
+        print("A * B = {}".format(A*B))
+    except Exception as e:
+        print(e)
+    print("5A = {}".format(5*A))
+    return
+
+def prob6b():
+    print("\nProblem 6b:")
+    A = np.array([1,2,3,4,5,6,7])
+    B = np.array([5,5,5,5,5,5,5])
+
+    print("A + B = {}".format(A+B))
+    print("A * B = {}".format(A*B))
+    print("5A = {}".format(5*A))
     return
 
 if __name__ == "__main__":
@@ -84,3 +104,5 @@ if __name__ == "__main__":
     prob3()
     prob4()
     prob5()
+    prob6a()
+    prob6b()
