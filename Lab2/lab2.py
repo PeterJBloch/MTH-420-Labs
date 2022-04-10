@@ -1,6 +1,8 @@
 #Standard Library Lab
 
-from re import A
+from doctest import Example
+import calculator
+import itertools
 
 
 def prob1(L):
@@ -36,7 +38,32 @@ def prob2():
     set2 = set1
     set1.add(4)
     print("Set mutable:",s2==s1)
+    return
 
+def prob3():
+    #Using calculator file, compute hypotenuse
+    side1 = 3
+    side2 = 4
+    print("Side A: {}".format(side1))
+    print("Side B: {}".format(side2))
+    #a^2
+    a2 = calculator.product(side1,side1)
+    #b^2
+    b2 = calculator.product(side2,side2)
+    hypotenuse = calculator.sqrt(calculator.sum(a2,b2))
+    print("Hypotenuse: {}".format(hypotenuse))
+    return
+
+def prob4():
+    #power of set A
+    example = [1,2,3]
+    power = power_set(example)
+    print(power)
+    return
+
+def power_set(some_list):
+    all_combinations = itertools.combinations(some_list)
+    itertools.chain.from_iterable(all_combinations)
     return
 
 def main():
@@ -49,6 +76,12 @@ def main():
     #Problem 2
     print("\nProblem 2:")
     prob2()
+
+    #Problem 3
+    print("\nProblem 3:")
+    prob3()
+    prob4()
+
 
 if __name__ == "__main__":
     main()
