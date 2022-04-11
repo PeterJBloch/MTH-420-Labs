@@ -38,7 +38,7 @@ def play_round(numbers, seconds_remaining, name):
         if sum(combo) == roll:
             found_combo = True
     if found_combo == False:
-        print("\nSorry {}, there are no more combinations left. Better luck next time!".format(name))
+        print("\nSorry {}, you rolled a {} and there are no more combinations left. Better luck next time!".format(name, roll))
         exit(0)
     print("Your roll was {}, and you have {} seconds left to play the game".format(roll, seconds_remaining))
     start = time.time() #Get current time
