@@ -2,7 +2,7 @@
 
 from doctest import Example
 import calculator
-import itertools
+from itertools import chain, combinations
 
 
 def prob1(L):
@@ -57,14 +57,12 @@ def prob3():
 def prob4():
     #power of set A
     example = [1,2,3]
-    power = power_set(example)
-    print(power)
+    powerset = power_set(example)
+    print(list(powerset))
     return
 
 def power_set(some_list):
-    all_combinations = itertools.combinations(some_list)
-    itertools.chain.from_iterable(all_combinations)
-    return
+    return chain.from_iterable(combinations(some_list, index) for index in range(len(some_list)+1))    
 
 def main():
     #Problem 1
@@ -80,6 +78,8 @@ def main():
     #Problem 3
     print("\nProblem 3:")
     prob3()
+
+    print("\nProblem 4")
     prob4()
 
 
