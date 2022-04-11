@@ -4,7 +4,8 @@ from sys import argv
 from random import randint
 import time
 from itertools import chain, combinations
-from numpy import number
+
+from numpy import power
 
 def power_set(some_list):
     return chain.from_iterable(combinations(some_list, index) for index in range(len(some_list)+1))    
@@ -24,11 +25,21 @@ def roll_dice(numbers):
         roll+=randint(1,6)
     return roll
 
-def play_round(numbers, seconds_remaining):
-    #Check if a viable combination exists
-    #Find all combinations of numbers from previous problem
+def play_round(numbers, seconds_remaining, name):
     print("The remaining numbers available are: {}".format(numbers))
     roll = roll_dice(numbers)
+
+    #Check if there is a viable combination of leftover numbers for the roll
+    found_combo = False
+    #Use the power set from previous problem
+    powerset = list(power_set(numbers))
+    # print("Powerset left: {}".format(powerset))
+    for combo in powerset:
+        if sum(combo) == roll:
+            found_combo = True
+    if found_combo == False:
+        print("\nSorry {}, there are no more combinations left. Better luck next time!".format(name))
+        exit(0)
     print("Your roll was {}, and you have {} seconds left to play the game".format(roll, seconds_remaining))
     start = time.time() #Get current time
     #User can make decisions now
@@ -72,13 +83,13 @@ def main():
     numbers = [1,2,3,4,5,6,7,8,9]
     time_remaining = time_limit
     while True:
-        numbers, time_taken = play_round(numbers, time_remaining)
+        numbers, time_taken = play_round(numbers, time_remaining, name)
         time_remaining-=time_taken
         if time_remaining<0:
-            print("\nSorry, the game time elapsed. Better luck next time!")
+            print("\nSorry {}, the game time elapsed. Better luck next time!".format(name))
             return
         if numbers == []:
-            print("Congratulations! You won with {} seconds remaining!".format(time_remaining))
+            print("\nCongratulations {}! You won with {} seconds remaining!".format(name, time_remaining))
 
 if __name__ == "__main__":
     main()
