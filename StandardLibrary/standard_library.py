@@ -1,10 +1,10 @@
 # standard_library.py
 """Python Essentials: The Standard Library.
-<Name>
-<Class>
-<Date>
+Peter J. Bloch
+MTH 420
+15 April 2022
 """
-
+import calculator
 
 # Problem 1
 def prob1(L):
