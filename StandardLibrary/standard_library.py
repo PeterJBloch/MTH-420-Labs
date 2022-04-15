@@ -11,7 +11,7 @@ def prob1(L):
     """Return the minimum, maximum, and average of the entries of L
     (in that order).
     """
-    raise NotImplementedError("Problem 1 Incomplete")
+    return "Min: {}, Max: {}, Average: {}".format(min(L), max(L), sum(L)/len(L))
 
 
 # Problem 2
@@ -19,7 +19,37 @@ def prob2():
     """Determine which Python objects are mutable and which are immutable.
     Test numbers, strings, lists, tuples, and sets. Print your results.
     """
-    raise NotImplementedError("Problem 2 Incomplete")
+    #int
+    a = 1
+    b=a
+    a+=1
+    print("Int mutable:",b==a)
+
+    #string
+    s1 = "hello"
+    s2 = s1
+    s1 = "hi"
+    print("String mutable:",s1==s2)
+
+    #list
+    l1 = ['hi','hello','goodbye']
+    l2=l1
+    l2[0]='hey'
+    print("List mutable:", l2==l1)
+
+    #tuple
+    t1 = (1,2)
+    t2=t1
+    t1+=(1,)
+    print("Tuple mutable:",t2==t1)
+
+    #set
+    set1 = set([1,2,3,1])
+    set2 = set1
+    set1.add(4)
+    print("Set mutable:",s2==s1)
+    # raise NotImplementedError("Problem 2 Incomplete")
+    return
 
 
 # Problem 3
@@ -34,7 +64,12 @@ def hypot(a, b):
     Returns:
         The length of the triangle's hypotenuse.
     """
-    raise NotImplementedError("Problem 3 Incomplete")
+    a2 = calculator.product(a,a)
+    b2 = calculator.product(b,b)
+    hypotenuse = calculator.sqrt(calculator.sum(a2,b2))
+    # print("Hypotenuse: {}".format(hypotenuse))
+    # raise NotImplementedError("Problem 3 Incomplete")
+    return hypotenuse
 
 
 # Problem 4
