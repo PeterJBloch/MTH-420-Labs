@@ -94,17 +94,18 @@ def shut_the_box(player, timelimit):
     """Play a single game of shut the box."""
     #Start the game
     print("\nWelcome {}, you have {} seconds to play the game!".format(player, timelimit))
+    
+    #Numbers in the game
     numbers = [1,2,3,4,5,6,7,8,9]
     time_remaining = timelimit
     while True:
-        numbers, time_taken = timelimit(numbers, time_remaining, player)
+        numbers, time_taken = play_round(numbers, time_remaining, player)
         time_remaining-=time_taken
         if time_remaining<0:
             print("\nSorry {}, the game time elapsed. Better luck next time!".format(player))
             return
         if numbers == []:
             print("\nCongratulations {}! You won with {} seconds remaining!".format(player, time_remaining))
-    return
 
 def roll_dice(numbers):
     roll = 0
