@@ -114,7 +114,7 @@ def roll_dice(numbers):
 
     #If the sum of remaining numbers is less than six, proceed
     if sum(numbers)<6:
-        return
+        return roll
 
     #Roll second dice
     else:
