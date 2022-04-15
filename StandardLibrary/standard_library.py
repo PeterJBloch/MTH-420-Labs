@@ -5,6 +5,7 @@ MTH 420
 15 April 2022
 """
 import calculator
+from itertools import chain, combinations
 
 # Problem 1
 def prob1(L):
@@ -82,7 +83,9 @@ def power_set(A):
     Returns:
         (list(sets)): The power set of A as a list of sets.
     """
-    raise NotImplementedError("Problem 4 Incomplete")
+    # raise NotImplementedError("Problem 4 Incomplete")
+        eturn chain.from_iterable(combinations(some_list, index) for index in range(len(some_list)+1))    
+
 
 
 # Problem 5: Implement shut the box.
