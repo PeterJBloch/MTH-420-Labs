@@ -1,0 +1,28 @@
+04/19/22 22:06
+
+Problem 3 (5 points):
+Score += 5
+
+Problem 4 (10 points):
+TypeError: Invalid return type 'NoneType'
+
+Problem 5 (10 points):
+tax_liability(62185) failed
+	Correct response: 9470.701000000001
+	Student response: 10655.7
+Score += 5
+
+Problem 6 (20 points):
+TypeError: 'NoneType' object is not subscriptable
+
+Code Quality (5 points):
+Score += 5
+
+Total score: 15/50 = 30.0%
+
+
+Comments:
+	please resubmit 
+
+-------------------------------------------------------------------------------
+
