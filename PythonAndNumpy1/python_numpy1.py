@@ -99,10 +99,11 @@ def prob6b():
     A = np.array([1,2,3,4,5,6,7])
     B = np.array([5,5,5,5,5,5,5])
 
-    print("A + B = {}".format(A+B))
-    print("A * B = {}".format(A*B))
-    print("5A = {}".format(5*A))
-    return
+    # print("A + B = {}".format(A+B))
+    # print("A * B = {}".format(A*B))
+    # print("5A = {}".format(5*A))
+
+    return A+B, A*B, 5*A
 
 if __name__ == "__main__":
     prob2()
