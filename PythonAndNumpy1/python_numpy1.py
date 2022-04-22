@@ -60,25 +60,15 @@ def tax_liability(income):
     liability = 0
     rates = [.10,.12,.22]
     cutoffs = [9875, 40125, 85525]
-    #check first bracket
-    if income < cutoffs[0]:
-        liability += rates[0]*income
-        return liability
+    
+    if (income > cutoffs[2]):
+        liability = cutoffs[0] * rates[0] + cutoffs[1]*rates[1] + (income-cutoffs[2])*rates[2]
 
-    else:
-        #if there's another bracket, tax the all of this section, then move on
-        liability+=rates[0]*cutoffs[0]
+    elif (income > cutoffs[1]):
+        liability = cutoffs[0] * rates[0] + (income-cutoffs[1])*rates[1]
 
-    #check second bracket
-    if income < cutoffs[1]:
-        liability+= (income-cutoffs[0])*rates[1]
-        return liability
-    else:
-        #if there's another bracket, tax the all of this section, then move on
-        liability+=rates[1]*cutoffs[1]
-
-    #third bracket is only thing left at this point
-    liability+= (income-cutoffs[1])*rates[2]
+    elif (income > cutoffs[0]):
+        liability = (income-cutoffs[0]) * rates[0]
     return liability
 
 def prob6a():
