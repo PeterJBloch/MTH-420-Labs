@@ -1,36 +1,58 @@
 # python_intro.py
 """Python Essentials: Introduction to Python.
-<Name>
-<Class>
-<Date>
+Peter Bloch
+MTH 420
+22 April, 2022
 """
+import numpy as np
 
 #Problem 1
 def isolate(a, b, c, d, e):
-
-    raise NotImplementedError("Problem 1 Incomplete")
+    # print("{}     {}     {} {} {}".format(a,b,c,d,e))
+    print(a,b,c, sep="     ",end=" ")
+    print(d,e, sep=" ",end="\n")
+    return
+    # raise NotImplementedError("Problem 1 Incomplete")
 
 #Problem 2
 def first_half(string):
-
-    raise NotImplementedError("Problem 2 Incomplete")
-
+    middle_char = len(string) // 2 #Floor division
+    return string[0:middle_char]
+    # raise NotImplementedError("Problem 2 Incomplete")
 
 def backward(first_string):
-
-    raise NotImplementedError("Problem 2 Incomplete")
+    return first_string[::-1] #is this a cheat way of using slicing?
+    # raise NotImplementedError("Problem 2 Incomplete")
 
 #Problem 3
 def list_ops():
+    """Does operations 1-6 of prompt
 
-    raise NotImplementedError("Problem 3 Incomplete")
+    I predict this will return: ["fox", "hawk", "dog", "ant", "hunter"]
+
+    Returns:
+        list: the list that has been operated on
+    """
+    animals = ["bear","ant","cat","dog"]
+    animals.append("eagle")
+    animals[2] = "fox"
+    animals.pop(1)
+    animals = sorted(animals, reverse=True)
+    eagle_index = animals.index("eagle")
+    animals[eagle_index] = "hawk"
+    animals.append("hunter")
+    return animals
+    # raise NotImplementedError("Problem 3 Incomplete")
 
 #Problem 4
 def alt_harmonic(n):
     """Return the partial sum of the first n terms of the alternating
     harmonic series. Use this function to approximate ln(2).
     """
-    raise NotImplementedError("Problem 4 Incomplete")
+
+    series = [((-1)**(i+1))/i for i in range(1,n+1)]
+    return sum(series)
+    # raise NotImplementedError("Problem 4 Incomplete")
 
 
 
@@ -43,7 +65,11 @@ def prob5(A):
         >>> prob4(A)
         array([0, 0, 3])
     """
-    raise NotImplementedError("Problem 5 Incomplete")
+    mask = A < 0
+    A[mask] = 0
+    return(A)
+    # raise NotImplementedError("Problem 5 Incomplete")
+
 
 def prob6():
     """Define the matrices A, B, and C as arrays. Return the block matrix
@@ -53,7 +79,20 @@ def prob6():
     where I is the 3x3 identity matrix and each 0 is a matrix of all zeros
     of the appropriate size.
     """
-    raise NotImplementedError("Problem 6 Incomplete")
+    A = np.array([[0,2,4],[1,3,5]])
+    B = np.array([[3,0,0],[3,3,0],[3,3,3]])
+    C = np.array([[-2,0,0],[0,-2,0],[0,0,-2]])
+    I = np.identity(3)
+
+    row1 = np.hstack((np.zeros((3,2)), np.hstack((A.T, I))))
+    row2 = np.hstack((A, np.zeros((2,4))))
+    row3 = np.hstack((np.hstack((B, np.zeros((3,1)))), C))
+
+    full_matrix = np.vstack((np.vstack((row1,row2)),row3))
+    # raise NotImplementedError("Problem 6 Incomplete")
+    # print(full_matrix.shape)
+    # print(full_matrix)
+    return full_matrix
 
 def prob7(A):
     """Divide each row of 'A' by the row sum and return the resulting array.
@@ -76,3 +115,12 @@ def prob8():
     raise NotImplementedError("Problem 8 Incomplete")
 
 
+def main():
+    isolate(1,2,3,4,5)
+    print(alt_harmonic(500000))
+    A = np.array([-3,-1,3])
+    print(prob5(A))
+    prob6()
+
+if __name__ == "__main__":
+    main()
