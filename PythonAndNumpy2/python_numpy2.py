@@ -117,7 +117,26 @@ def prob8():
     """
 
     grid = np.load("grid.npy")
+
+    #Horizontal
+    h_max = np.max(grid[:,:-3] * grid[:,1:-2] * grid[:,2:-1] * grid[:,3:])
+    print(h_max)
+
+    #vertical
+    v_max = np.max(grid[:-3,:] * grid[1:-2,:] * grid[2:-1,:] * grid[3:,:])
+    print(v_max)
+
+    #diagonal down-right
+    dr_max = np.max(grid[:-3,:-3] * grid[1:-2,1:-2] * grid[2:-1,2:-1] * grid[3:,3:])
+    print(dr_max)
+
+    #diagonal up-right
+    #not sure here
+    # dr_max = np.max(grid[:3,:3] * grid[-1:2,-1:2] * grid[-2:1,-2:1] * grid[-3:,-3:])
+    # print(ur_max)
+
     # raise NotImplementedError("Problem 8 Incomplete")
+    return np.max(h_max,v_max,dr_max,ur_max)
 
 
 def main():
@@ -126,7 +145,8 @@ def main():
     A = np.array([-3,-1,3])
     print(prob5(A))
     prob6()
-    prob7(A=0)
+    # prob7(A=0)
+    prob8()
 
 if __name__ == "__main__":
     main()
