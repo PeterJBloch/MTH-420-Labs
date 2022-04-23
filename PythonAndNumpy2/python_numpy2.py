@@ -4,6 +4,7 @@ Peter Bloch
 MTH 420
 22 April, 2022
 """
+from unittest import result
 import numpy as np
 
 #Problem 1
@@ -104,7 +105,9 @@ def prob7(A):
                [ 0.        ,  1.        ,  0.        ],
                [ 0.33333333,  0.33333333,  0.33333333]])
     """
-    raise NotImplementedError("Problem 7 Incomplete")
+    result = (A.T*(1/A.sum(axis=1))).T
+    return result
+    # raise NotImplementedError("Problem 7 Incomplete")
 
 
 def prob8():
@@ -112,7 +115,9 @@ def prob8():
     adjacent numbers in the same direction (up, down, left, right, or
     diagonally) in the grid.
     """
-    raise NotImplementedError("Problem 8 Incomplete")
+
+    grid = np.load("grid.npy")
+    # raise NotImplementedError("Problem 8 Incomplete")
 
 
 def main():
@@ -121,6 +126,7 @@ def main():
     A = np.array([-3,-1,3])
     print(prob5(A))
     prob6()
+    prob7(A=0)
 
 if __name__ == "__main__":
     main()
