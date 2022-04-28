@@ -1,10 +1,11 @@
 # matplotlib_intro.py
 """Python Essentials: Intro to Matplotlib.
-<Name>
-<Class>
-<Date>
+Peter J. Bloch
+28 April 2022
+MTH 420
 """
-
+import numpy as np
+import matplotlib.pyplot as plt
 
 # Problem 1
 def var_of_means(n):
@@ -18,13 +19,25 @@ def var_of_means(n):
     Returns:
         (float) The variance of the means of each row.
     """
-    raise NotImplementedError("Problem 1 Incomplete")
+    random_array = np.random.normal(size=(n,n))
+    means = np.mean(random_array,axis=0)
+    variance = np.var(means)
+    # raise NotImplementedError("Problem 1 Incomplete")
+    return variance
 
 def prob1():
     """Create an array of the results of var_of_means() with inputs
     n = 100, 200, ..., 1000. Plot and show the resulting array.
     """
-    raise NotImplementedError("Problem 1 Incomplete")
+    x_values = [i for i in range(100,1001, 100)]
+    y_values = []
+    for i in range(100,1001, 100):
+        y_values.append(var_of_means(i))
+
+    plt.plot(x_values,y_values)
+    plt.title("Problem 1: Variation of Means")
+    plt.show()
+    # raise NotImplementedError("Problem 1 Incomplete")
 
 
 # Problem 2
@@ -89,3 +102,10 @@ def prob6():
         4. Add a colorbar to each subplot.
     """
     raise NotImplementedError("Problem 6 Incomplete")
+
+def main():
+    # print(var_of_means(100))
+    prob1()
+
+if __name__ == "__main__":
+    main()
