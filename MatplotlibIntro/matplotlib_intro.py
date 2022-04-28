@@ -4,8 +4,7 @@ Peter J. Bloch
 28 April 2022
 MTH 420
 """
-from cProfile import label
-from turtle import title
+
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -68,7 +67,17 @@ def prob3():
         3. Set the range of the x-axis to [-2,6] and the range of the
            y-axis to [-6,6].
     """
-    raise NotImplementedError("Problem 3 Incomplete")
+    x1 = np.linspace(-2,1-.00001,60)
+    x2 = np.linspace(1.0001,6,60)
+    y1 = 1/(x1-1)
+    y2 = 1/(x2-1)
+    plt.xlim(-2,6)
+    plt.ylim(-6,6)
+    plt.plot(x1,y1,'m--')
+    plt.plot(x2,y2,'m--')
+    plt.title("Problem3: f(x) = 1/(x-1)")
+    plt.show()
+    # raise NotImplementedError("Problem 3 Incomplete")
 
 
 # Problem 4
@@ -118,6 +127,7 @@ def main():
     # print(var_of_means(100))
     prob1()
     prob2()
+    prob3()
 
 if __name__ == "__main__":
     main()

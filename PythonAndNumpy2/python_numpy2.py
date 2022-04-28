@@ -134,6 +134,7 @@ def prob8():
     #not sure here
     # dr_max = np.max(grid[:3,:3] * grid[-1:2,-1:2] * grid[-2:1,-2:1] * grid[-3:,-3:])
     # print(ur_max)
+    ur_max = 0
 
     # raise NotImplementedError("Problem 8 Incomplete")
     return np.max(h_max,v_max,dr_max,ur_max)
