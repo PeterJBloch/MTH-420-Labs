@@ -94,7 +94,29 @@ def prob4():
              2sin(x): blue dashed line.
             2sin(2x): magenta dotted line.
     """
-    raise NotImplementedError("Problem 4 Incomplete")
+    x = np.linspace(0, 2*np.pi, 50)
+    plt.axis([0, 2*np.pi, -2, 2])
+    #sin(x)
+    ax1 = plt.subplot(2,2,1)
+    ax1.plot(x, np.sin(x), "g")
+    ax1.set_title("f = sin(x)")
+    #sin(2x)
+    ax2 = plt.subplot(2,2,2)
+    ax2.plot(x, np.sin(2*x), "r--")
+    ax2.set_title("f = sin(2x)")
+    #2sin(x)
+    ax3 = plt.subplot(2,2,3)
+    ax3.plot(x, 2*np.sin(x),"b--")
+    ax3.set_title("f = 2*sin(x)")
+    #2sin(2x)
+    ax4 = plt.subplot(2,2,4)
+    ax4.plot(x, 2*np.sin(2*x), "m.")
+    ax4.set_title("f = 2*sin(2x)")
+
+    plt.suptitle("Problem 4: Coefficients of sin(x)")
+    plt.show()
+    # raise NotImplementedError("Problem 4 Incomplete")
+    return
 
 
 # Problem 5
@@ -128,6 +150,7 @@ def main():
     prob1()
     prob2()
     prob3()
+    prob4()
 
 if __name__ == "__main__":
     main()
