@@ -4,6 +4,8 @@ Peter J. Bloch
 28 April 2022
 MTH 420
 """
+from cProfile import label
+from turtle import title
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -46,7 +48,16 @@ def prob2():
     [-2pi, 2pi]. Make sure the domain is refined enough to produce a figure
     with good resolution.
     """
-    raise NotImplementedError("Problem 2 Incomplete")
+    # x = [i for i in range(-np.pi, np.pi+0.1, np.pi/8)]
+    x = np.linspace(-np.pi,np.pi,30)
+    plt.plot(x, np.sin(x),label="Sin(x)")
+    plt.plot(x, np.cos(x), label = "Cos(x)")
+    plt.plot(x, np.arctan(x), label="Arctan(x)")
+    plt.title("Problem 2: Sin, Cos, Arctan of x")
+    plt.legend()
+    plt.show()
+    
+    # raise NotImplementedError("Problem 2 Incomplete")
 
 
 # Problem 3
@@ -106,6 +117,7 @@ def prob6():
 def main():
     # print(var_of_means(100))
     prob1()
+    prob2()
 
 if __name__ == "__main__":
     main()
