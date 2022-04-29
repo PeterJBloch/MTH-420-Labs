@@ -62,7 +62,7 @@ def tax_liability(income):
     cutoffs = [9875, 40125]
     
     if (income > cutoffs[1]): #22% bracket is highest
-        liability = cutoffs[0]*rates[0] + cutoffs[1]*rates[1] + (income-cutoffs[1])*rates[2]
+        liability = cutoffs[0]*rates[0] + (cutoffs[1]-cutoffs[0]) * rates[1] + (income-cutoffs[1])*rates[2]
 
     elif (income > cutoffs[0]): #12% bracket is highest
         liability = cutoffs[0] * rates[0] + (income-cutoffs[0])*rates[1]
