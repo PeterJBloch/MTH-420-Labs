@@ -76,13 +76,13 @@ def prob6a():
     A = [1,2,3,4,5,6,7]
     B = [5,5,5,5,5,5,5]
 
-    print("A + B = {}".format(A+B))
-    try:
-        print("A * B = {}".format(A*B))
-    except Exception as e:
-        print(e)
-    print("5A = {}".format(5*A))
-    return
+    # print("A + B = {}".format(A+B))
+    # try:
+    #     print("A * B = {}".format(A*B))
+    # except Exception as e:
+    #     print(e)
+    # print("5A = {}".format(5*A))
+    return A+B, A*B, 5*A
 
 def prob6b():
     print("\nProblem 6b:")
