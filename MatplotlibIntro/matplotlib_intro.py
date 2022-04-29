@@ -130,14 +130,21 @@ def prob5():
         2. A histogram of the hours of the day, with one bin per hour.
             Label and set the limits of the x-axis.
     """
-    # raise NotImplementedError("Problem 5 Incomplete")
+    # PART 1:
     fars_data = np.load("FARS.npy")
-    #columns are: time (integer), longitude (float), latitude (float)
+    #columns are: times (integer), longitude (float), latitude (float)
+    times = fars_data[:,0]
     longitudes = fars_data[:,1]
-    # print(longitudes)
     latitudes = fars_data[:,2]
-    plt.scatter(latitudes,longitudes, 1, "k")
+    plt.scatter(longitudes,latitudes, 1, "k")
+    plt.axis("equal")
     plt.title("Problem 5: Scatter Plot of Car Accidents")
+    plt.show()
+
+    # PART 2
+    plt.hist(times, bins = np.arange(0, 25))
+    plt.xlim(0,24)
+    plt.title("Problem 5: Histogram of Car Crash Times")
     plt.show()
 
 
