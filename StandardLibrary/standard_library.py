@@ -86,10 +86,7 @@ def power_set(A):
         (list(sets)): The power set of A as a list of sets.
     """
     # raise NotImplementedError("Problem 4 Incomplete")
-    # A = [1,2,3,4]
-    power_set = list(chain.from_iterable(combinations(A, index) for index in range(len(A)+1)))
-    # print(power_set)
-    return power_set
+    return list(chain.from_iterable(combinations(A, index) for index in range(len(A)+1)))
 
 
 
