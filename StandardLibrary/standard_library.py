@@ -13,7 +13,8 @@ def prob1(L):
     """Return the minimum, maximum, and average of the entries of L
     (in that order).
     """
-    return "Min: {}, Max: {}, Average: {}".format(min(L), max(L), sum(L)/len(L))
+    my_list = list(L)
+    return "Min: {}, Max: {}, Average: {}".format(min(my_list), max(my_list), sum(my_list)/len(my_list))
 
 
 # Problem 2
