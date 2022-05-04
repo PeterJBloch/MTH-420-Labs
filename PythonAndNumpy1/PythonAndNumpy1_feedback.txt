@@ -54,3 +54,28 @@ Comments:
 
 -------------------------------------------------------------------------------
 
+05/04/22 21:53
+
+Problem 3 (5 points):
+Score += 5
+
+Problem 4 (10 points):
+Score += 10
+
+Problem 5 (10 points):
+Score += 10
+
+Problem 6 (20 points):
+TypeError: can't multiply sequence by non-int of type 'list'
+
+Code Quality (5 points):
+Score += 5
+
+Total score: 30/50 = 60.0%
+
+
+Comments:
+	resubmit
+
+-------------------------------------------------------------------------------
+
