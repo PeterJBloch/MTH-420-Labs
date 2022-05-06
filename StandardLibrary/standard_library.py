@@ -14,7 +14,7 @@ def prob1(L):
     (in that order).
     """
     my_list = list(L)
-    return "Min: {0}, Max: {1}, Average: {2}".format(min(my_list), max(my_list), sum(my_list)/len(my_list))
+    return min(my_list), max(my_list), sum(my_list)/len(my_list)
 
 
 # Problem 2
