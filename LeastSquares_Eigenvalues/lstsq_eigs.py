@@ -1,8 +1,8 @@
 # lstsq_eigs.py
 """Volume 1: Least Squares and Computing Eigenvalues.
-<Name>
-<Class>
-<Date>
+Peter J. Bloch
+MTH 420
+6 May 2022
 """
 
 # (Optional) Import functions from your QR Decomposition lab.
@@ -12,6 +12,10 @@
 
 import numpy as np
 from matplotlib import pyplot as plt
+import sys
+sys.path.append("../")
+from MatplotlibIntro.matplotlib_intro import prob1
+from scipy import linalg as la
 
 
 # Problem 1
@@ -26,7 +30,15 @@ def least_squares(A, b):
     Returns:
         x ((n, ) ndarray): The solution to the normal equations.
     """
-    raise NotImplementedError("Problem 1 Incomplete")
+    # Ax = b
+    Q, R = la.qr(A, mode='economic')    # QRx = b
+    print(Q.shape)
+    print(R.shape)
+    b1 = Q.T @ b                         # Rx = b1
+    x = la.solve_triangular(R, b1)      # x = R^-1 * b1
+
+    return x
+    # raise NotImplementedError("Problem 1 Incomplete")
 
 # Problem 2
 def line_fit():
@@ -98,3 +110,14 @@ def qr_algorithm(A, N=50, tol=1e-12):
         ((n,) ndarray): The eigenvalues of A.
     """
     raise NotImplementedError("Problem 6 Incomplete")
+
+
+def main():
+    return
+
+if __name__ == "__main__":
+    #Test prob1:
+    A = np.array([[1,1],[2,1],[3,1]])
+    b = np.array([2,4,6]) #x should return 2,0?
+    # print(least_squares(A,b))
+    main()
