@@ -50,7 +50,7 @@ def prob2():
     set1 = {1,2,3}
     set2 = set1
     set1.add(4)
-    print("Set mutable:",s2==s2)
+    print("Set mutable:",set1==set2)
     # raise NotImplementedError("Problem 2 Incomplete")
     return
 
