@@ -119,5 +119,5 @@ if __name__ == "__main__":
     #Test prob1:
     A = np.array([[1,1],[2,1],[3,1]])
     b = np.array([2,4,6]) #x should return 2,0?
-    # print(least_squares(A,b))
+    print(least_squares(A,b))
     main()
