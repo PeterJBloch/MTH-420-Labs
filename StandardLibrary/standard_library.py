@@ -14,7 +14,7 @@ def prob1(L):
     (in that order).
     """
     my_list = list(L)
-    return "Min: {}, Max: {}, Average: {}".format(min(my_list), max(my_list), sum(my_list)/len(my_list))
+    return "Min: {0}, Max: {1}, Average: {2}".format(min(my_list), max(my_list), sum(my_list)/len(my_list))
 
 
 # Problem 2
@@ -164,6 +164,7 @@ def play_round(numbers, seconds_remaining, name):
 
 
 def main():
+    prob1([1,2,3,4])
     prob2()
     return
 
