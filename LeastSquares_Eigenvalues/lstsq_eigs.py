@@ -10,6 +10,8 @@ MTH 420
 # sys.path.insert(1, "../QR_Decomposition")
 # from qr_decomposition import qr_gram_schmidt, qr_householder, hessenberg
 
+from cProfile import label
+from re import X
 import numpy as np
 from matplotlib import pyplot as plt
 import sys
@@ -32,8 +34,8 @@ def least_squares(A, b):
     """
     # Ax = b
     Q, R = la.qr(A, mode='economic')    # QRx = b
-    print(Q.shape)
-    print(R.shape)
+    # print(Q.shape)
+    # print(R.shape)
     b1 = Q.T @ b                         # Rx = b1
     x = la.solve_triangular(R, b1)      # x = R^-1 * b1
 
@@ -46,8 +48,23 @@ def line_fit():
     index for the data in housing.npy. Plot both the data points and the least
     squares line.
     """
-    raise NotImplementedError("Problem 2 Incomplete")
+    # raise NotImplementedError("Problem 2 Incomplete")
+    housing_data = np.load('housing.npy') #Columns: year, price index
+    rows, columns = housing_data.shape
+    years = housing_data[:,0]
+    ones = np.ones((rows,))
+    # print(years.shape, ones.shape)
+    A = np.vstack((years, ones))
+    price_index = housing_data[:,1]
+    # print(A.shape, price_index.shape)
+    x = least_squares(A.T,price_index)
 
+    X = np.linspace(0, 20, 50)
+    Y = x[0]*X + x[1]
+    plt.plot(X,Y,'r')
+    plt.scatter(years, price_index)
+    print("Plotting y = {}x + {}".format(round(x[0], 3),round(x[1],3)))
+    plt.show()
 
 # Problem 3
 def polynomial_fit():
@@ -117,7 +134,8 @@ def main():
 
 if __name__ == "__main__":
     #Test prob1:
-    A = np.array([[1,1],[2,1],[3,1]])
-    b = np.array([2,4,6]) #x should return 2,0?
-    print(least_squares(A,b))
+    # A = np.array([[1,1],[2,1],[3,1]])
+    # b = np.array([2,4,6]) #x should return 2,0?
+    # print(least_squares(A,b))
+    line_fit()
     main()
