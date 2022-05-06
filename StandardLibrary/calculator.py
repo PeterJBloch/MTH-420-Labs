@@ -1,8 +1,8 @@
 #Problem 3 of the Standard Library Assignment
 import math
 
-def sqrt():
-    return math.sqrt()
+def sqrt(a):
+    return math.sqrt(a)
 
 def product(a,b):
     return a*b
