@@ -41,7 +41,7 @@ def list_ops():
     animals = sorted(animals, reverse=True)
     eagle_index = animals.index("eagle")
     animals[eagle_index] = "hawk"
-    animals.append("hunter")
+    animals[-1].append("hunter")
     return animals
     # raise NotImplementedError("Problem 3 Incomplete")
 
@@ -66,9 +66,10 @@ def prob5(A):
         >>> prob4(A)
         array([0, 0, 3])
     """
-    mask = A < 0
-    A[mask] = 0
-    return(A)
+    B = np.copy(B)
+    mask = B < 0
+    B[mask] = 0
+    return(B)
     # raise NotImplementedError("Problem 5 Incomplete")
 
 
