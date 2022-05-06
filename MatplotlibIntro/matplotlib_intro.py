@@ -159,7 +159,22 @@ def prob6():
         3. Choose a non-default color scheme.
         4. Add a colorbar to each subplot.
     """
-    raise NotImplementedError("Problem 6 Incomplete")
+    # bounds = [0, 2*np.pi, -2, 2]
+    x = np.linspace(-2*np.pi, 2*np.pi, 50)
+    y = x.copy()
+    X, Y = np.meshgrid(x, y)
+    Z = np.sin(x) * np.sin(y) / x*y
+    plt.subplot(121)
+    plt.pcolormesh([X, Y], C=Z)
+    plt.colorbar()
+    plt.xlim(-2*np.pi, 2*np.pi)
+    plt.ylim(-2*np.pi, 2*np.pi)
+    # Plot a contour map of f with 10 level curves.
+    plt.subplot(122)
+    plt.contour(X, Y, Z, 10, cmap="coolwarm")
+    plt.colorbar()
+    # raise NotImplementedError("Problem 6 Incomplete")
+
 
 def main():
     # print(var_of_means(100))
@@ -167,7 +182,8 @@ def main():
     # prob2()
     # prob3()
     # prob4()
-    prob5()
+    # prob5()
+    prob6()
 
 if __name__ == "__main__":
     main()

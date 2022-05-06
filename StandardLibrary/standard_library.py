@@ -47,10 +47,10 @@ def prob2():
     print("Tuple mutable:",t2==t1)
 
     #set
-    set1 = set([1,2,3,1])
+    set1 = {1,2,3}
     set2 = set1
     set1.add(4)
-    print("Set mutable:",s2==s1)
+    print("Set mutable:",s2==s2)
     # raise NotImplementedError("Problem 2 Incomplete")
     return
 
@@ -161,3 +161,11 @@ def play_round(numbers, seconds_remaining, name):
     for i in selection:
         numbers.remove(i)
     return numbers, time.time()-start #The remaining unchosen numbers and the time difference of user decision is returned
+
+
+def main():
+    prob2()
+    return
+
+if __name__ == "__main__":
+    main()
