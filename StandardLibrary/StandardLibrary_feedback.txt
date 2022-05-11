@@ -61,3 +61,62 @@ Comments:
 
 -------------------------------------------------------------------------------
 
+05/11/22 23:30
+
+Problem 1 (10 points):
+Score += 10
+
+Problem 2 (10 points):
+Score += 10
+
+Problem 3 (10 points):
+Score += 10
+
+Problem 4 (10 points):
+	power_set(A) does not contain set() (the empty set)
+	power_set(A) does not contain set(A)
+	power_set(A) does not contain set() (the empty set)
+	power_set(A) does not contain set(A)
+	power_set(A) does not contain set() (the empty set)
+	power_set(A) does not contain set(A)
+	power_set(A) does not contain set() (the empty set)
+	power_set(A) does not contain set(A)
+Score += 0
+
+Code Quality (10 points):
+regrade
+Score += 5
+
+Total score: 35/50 = 70.0%
+
+-------------------------------------------------------------------------------
+
+05/11/22 23:31
+
+Problem 1 (10 points):
+Score += 10
+
+Problem 2 (10 points):
+Score += 10
+
+Problem 3 (10 points):
+Score += 10
+
+Problem 4 (10 points):
+	power_set(A) does not contain set() (the empty set)
+	power_set(A) does not contain set(A)
+	power_set(A) does not contain set() (the empty set)
+	power_set(A) does not contain set(A)
+	power_set(A) does not contain set() (the empty set)
+	power_set(A) does not contain set(A)
+	power_set(A) does not contain set() (the empty set)
+	power_set(A) does not contain set(A)
+Score += 0
+
+Code Quality (10 points):
+Score += 10
+
+Total score: 40/50 = 80.0%
+
+-------------------------------------------------------------------------------
+
