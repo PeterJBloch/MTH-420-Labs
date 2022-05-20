@@ -86,7 +86,14 @@ def power_set(A):
         (list(sets)): The power set of A as a list of sets.
     """
     # raise NotImplementedError("Problem 4 Incomplete")
-    return set(chain.from_iterable(combinations(A, index) for index in range(len(A)+1)))
+    all_combos = []
+    for index in range(len(A)+1):
+        combos = set(combinations(A, index))
+        for i in combos:
+            all_combos.append(set(i))
+    # return list(chain.from_iterable(combinations(A, index) for index in range(len(A)+1)))
+    # print(all_combos)
+    return all_combos
 
 
 
@@ -166,7 +173,9 @@ def play_round(numbers, seconds_remaining, name):
 def main():
     # prob1([1,2,3,4])
     # prob2()
-    # print(power_set([1,2,3,4]))
+    # A =  [1,2,3,4]
+    # print(set(A))
+    # print(power_set(A))
     return
 
 if __name__ == "__main__":
