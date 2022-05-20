@@ -72,7 +72,47 @@ def polynomial_fit():
     the year to the housing price index for the data in housing.npy. Plot both
     the data points and the least squares polynomials in individual subplots.
     """
-    raise NotImplementedError("Problem 3 Incomplete")
+    housing_data = np.load('housing.npy')
+    rows, columns = housing_data.shape
+    years = housing_data[:,0]
+    price_index = housing_data[:,1]
+
+    #degree 3
+    # A1 = np.vander(years,4)
+    A1 = np.vander(years, 4)
+    X = np.linspace(0, 16, 50)
+    plt.subplot(141)
+    x = least_squares(A1, price_index)
+    Y = np.vander(X,4)@x
+    plt.plot(X, Y,'r')
+    plt.scatter(years, price_index)
+
+    #degree 6
+    plt.subplot(142)
+    A2 = np.vander(years, 7)
+    x = least_squares(A2, price_index)
+    Y = np.vander(X,7)@x
+    plt.plot(X, Y,'r')
+    plt.scatter(years, price_index)
+
+    #degree 9
+    plt.subplot(143)
+    A3 = np.vander(years, 10)
+    x = least_squares(A3, price_index)
+    Y = np.vander(X,10)@x
+    plt.plot(X, Y,'r')
+    plt.scatter(years, price_index)
+
+    #degree 12
+    plt.subplot(144)
+    A4 = np.vander(years, 13)
+    x = least_squares(A4, price_index)
+    Y = np.vander(X,13)@x
+    plt.plot(X, Y,'r')
+    plt.scatter(years, price_index)
+
+    plt.show()
+    # raise NotImplementedError("Problem 3 Incomplete")
 
 
 def plot_ellipse(a, b, c, d, e):
@@ -138,4 +178,5 @@ if __name__ == "__main__":
     # b = np.array([2,4,6]) #x should return 2,0?
     # print(least_squares(A,b))
     line_fit()
+    polynomial_fit()
     main()
