@@ -41,7 +41,7 @@ def list_ops():
     animals = sorted(animals, reverse=True)
     eagle_index = animals.index("eagle")
     animals[eagle_index] = "hawk"
-    animals[-1].append("hunter")
+    animals[-1]+=("hunter")
     return animals
     # raise NotImplementedError("Problem 3 Incomplete")
 
@@ -66,7 +66,7 @@ def prob5(A):
         >>> prob4(A)
         array([0, 0, 3])
     """
-    B = np.copy(B)
+    B = np.copy(A)
     mask = B < 0
     B[mask] = 0
     return(B)
@@ -118,6 +118,7 @@ def prob8():
     """
 
     grid = np.load("grid.npy")
+    # print(grid)
 
     #Horizontal
     h_max = np.max(grid[:,:-3] * grid[:,1:-2] * grid[:,2:-1] * grid[:,3:])
@@ -138,11 +139,13 @@ def prob8():
     ur_max = 0
 
     # raise NotImplementedError("Problem 8 Incomplete")
-    return np.max(h_max,v_max,dr_max,ur_max)
+    # print(np.max([h_max,v_max,dr_max,ur_max]))
+    return np.max([h_max,v_max,dr_max,ur_max])
 
 
 def main():
     isolate(1,2,3,4,5)
+    list_ops()
     print(alt_harmonic(500000))
     A = np.array([-3,-1,3])
     print(prob5(A))
