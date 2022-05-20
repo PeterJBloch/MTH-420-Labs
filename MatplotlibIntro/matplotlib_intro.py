@@ -163,9 +163,12 @@ def prob6():
     x = np.linspace(-2*np.pi, 2*np.pi, 50)
     y = x.copy()
     X, Y = np.meshgrid(x, y)
-    Z = np.sin(x) * np.sin(y) / x*y
+    Z = np.sin(X) * np.sin(Y) / X*Y
     plt.subplot(121)
-    plt.pcolormesh([X, Y], C=Z)
+    # print("x shape", X.shape)
+    # print("y shape", Y.shape)
+    # print("z shape", Z.shape)
+    plt.pcolormesh(X, Y, Z)
     plt.colorbar()
     plt.xlim(-2*np.pi, 2*np.pi)
     plt.ylim(-2*np.pi, 2*np.pi)
@@ -173,6 +176,7 @@ def prob6():
     plt.subplot(122)
     plt.contour(X, Y, Z, 10, cmap="coolwarm")
     plt.colorbar()
+    plt.show()
     # raise NotImplementedError("Problem 6 Incomplete")
 
 
