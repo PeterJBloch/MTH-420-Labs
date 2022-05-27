@@ -10,14 +10,14 @@ MTH 420
 # sys.path.insert(1, "../QR_Decomposition")
 # from qr_decomposition import qr_gram_schmidt, qr_householder, hessenberg
 
-from cProfile import label
-from re import X
-from cv2 import ellipse
+#from cProfile import label
+#from re import X
+#from cv2 import ellipse
 import numpy as np
 # from numpy import linalg as la
 from matplotlib import pyplot as plt
-import sys
-sys.path.append("../")
+#import sys
+#sys.path.append("../")
 from scipy import linalg as la
 
 

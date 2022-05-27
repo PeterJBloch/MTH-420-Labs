@@ -10,3 +10,29 @@ ModuleNotFoundError while loading 'lstsq_eigs.py': No module named 'MatplotlibIn
 
 -------------------------------------------------------------------------------
 
+05/27/22 18:43
+
+ModuleNotFoundError while loading 'lstsq_eigs.py': No module named 'cv2'
+
+-------------------------------------------------------------------------------
+
+05/27/22 18:57
+
+Problem 1 (15 points):
+Score += 15
+
+Problem 2 (15 points):
+Score += 15
+
+Problem 3 (15 points):
+Score += 15
+
+Code Quality (5 points):
+Score += 5
+
+Total score: 50/50 = 100.0%
+
+Excellent!
+
+-------------------------------------------------------------------------------
+
