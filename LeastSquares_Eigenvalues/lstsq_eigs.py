@@ -18,7 +18,6 @@ import numpy as np
 from matplotlib import pyplot as plt
 import sys
 sys.path.append("../")
-from MatplotlibIntro.matplotlib_intro import prob1
 from scipy import linalg as la
 
 
