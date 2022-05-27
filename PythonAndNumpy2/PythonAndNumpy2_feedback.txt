@@ -64,3 +64,35 @@ Total score: 30/50 = 60.0%
 
 -------------------------------------------------------------------------------
 
+05/27/22 17:22
+
+Problem 1 (10 points):
+Score += 10
+
+Problem 2 (10 points):
+Score += 10
+
+Problem 3 (10 points):
+Score += 10
+
+Problem 4 (5 points):
+Score += 5
+
+Problem 5 (5 points):
+Score += 5
+
+Problem 6 (5 points):
+prob5() returned array of incorrect shape
+	Correct response: (8, 8)
+	Student response: (8, 7)
+Score += 0
+
+Code Quality (5 points):
+Score += 5
+
+Total score: 45/50 = 90.0%
+
+Great job!
+
+-------------------------------------------------------------------------------
+
