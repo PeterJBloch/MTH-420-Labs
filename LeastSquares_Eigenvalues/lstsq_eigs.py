@@ -12,7 +12,9 @@ MTH 420
 
 from cProfile import label
 from re import X
+from cv2 import ellipse
 import numpy as np
+# from numpy import linalg as la
 from matplotlib import pyplot as plt
 import sys
 sys.path.append("../")
@@ -63,7 +65,7 @@ def line_fit():
     Y = x[0]*X + x[1]
     plt.plot(X,Y,'r')
     plt.scatter(years, price_index)
-    print("Plotting y = {}x + {}".format(round(x[0], 3),round(x[1],3)))
+    # print("Plotting y = {}x + {}".format(round(x[0], 3),round(x[1],3)))
     plt.show()
 
 # Problem 3
@@ -76,40 +78,74 @@ def polynomial_fit():
     rows, columns = housing_data.shape
     years = housing_data[:,0]
     price_index = housing_data[:,1]
-
-    #degree 3
-    # A1 = np.vander(years,4)
-    A1 = np.vander(years, 4)
     X = np.linspace(0, 16, 50)
-    plt.subplot(141)
+
+    #======LEAST SQUARES======
+    plt.subplot(121)
+    #degree 3
+    A1 = np.vander(years, 4)
     x = least_squares(A1, price_index)
     Y = np.vander(X,4)@x
-    plt.plot(X, Y,'r')
+    plt.plot(X, Y,'r', label="Degree 3")
     plt.scatter(years, price_index)
 
     #degree 6
-    plt.subplot(142)
     A2 = np.vander(years, 7)
     x = least_squares(A2, price_index)
     Y = np.vander(X,7)@x
-    plt.plot(X, Y,'r')
+    plt.plot(X, Y,'k', label="Degree 6")
     plt.scatter(years, price_index)
 
     #degree 9
-    plt.subplot(143)
     A3 = np.vander(years, 10)
     x = least_squares(A3, price_index)
     Y = np.vander(X,10)@x
-    plt.plot(X, Y,'r')
+    plt.plot(X, Y,'blue', label="Degree 9")
     plt.scatter(years, price_index)
 
     #degree 12
-    plt.subplot(144)
     A4 = np.vander(years, 13)
     x = least_squares(A4, price_index)
     Y = np.vander(X,13)@x
-    plt.plot(X, Y,'r')
+    plt.plot(X, Y,'cyan', label="Degree 12")
     plt.scatter(years, price_index)
+    plt.title("My Least Squares Function")
+    plt.legend(loc="lower right")
+
+    #======POLYFIT======
+    plt.subplot(122)
+
+    #degree 3
+    A1 = np.vander(years, 4)
+    x = np.polyfit(years,price_index,3)
+    Y = np.vander(X,4)@x
+    plt.plot(X, Y,'r', label="Degree 3")
+    plt.scatter(years, price_index)
+    plt.title("Numpy Polyfit")
+
+    #degree 6
+    A2 = np.vander(years, 7)
+    x = np.polyfit(years,price_index,6)
+    Y = np.vander(X,7)@x
+    plt.plot(X, Y,'k', label="Degree 6")
+    plt.scatter(years, price_index)
+
+    # #degree 9
+    A3 = np.vander(years, 10)
+    x = np.polyfit(years,price_index,9)
+    Y = np.vander(X,10)@x
+    plt.plot(X, Y,'blue', label="Degree 9")
+    plt.scatter(years, price_index)
+
+    #degree 12
+    A4 = np.vander(years, 13)
+    x = np.polyfit(years,price_index,12)
+    Y = np.vander(X,13)@x
+    plt.plot(X, Y,'cyan', label="Degree 12")
+    plt.scatter(years, price_index)
+
+
+    plt.legend(loc="lower right")
 
     plt.show()
     # raise NotImplementedError("Problem 3 Incomplete")
@@ -132,7 +168,23 @@ def ellipse_fit():
     ellipse.npy. Plot the original data points and the ellipse together, using
     plot_ellipse() to plot the ellipse.
     """
-    raise NotImplementedError("Problem 4 Incomplete")
+    ellipse_coords = np.load('ellipse.npy')
+    rows, columns = ellipse_coords.shape #100 rows x 2 columns
+    ellipse_x = ellipse_coords[:,0]
+    ellipse_y = ellipse_coords[:,1]
+
+    A = np.column_stack((ellipse_x**2, ellipse_x, ellipse_x*ellipse_y, ellipse_y, ellipse_y**2))
+    b = np.ones((rows,))
+    C_a, C_b, C_c, C_d, C_e = la.lstsq(A, b)[0] # a 5x1 array of coefficients to ellipse fit
+    plot_ellipse(C_a, C_b, C_c, C_d, C_e)
+    # print(ellipse_x.shape())
+    # print(rows,columns)
+
+    plt.scatter(ellipse_x, ellipse_y, c='r')
+    plt.show()
+    
+    # raise NotImplementedError("Problem 4 Incomplete")
+    return
 
 
 # Problem 5
@@ -150,7 +202,15 @@ def power_method(A, N=20, tol=1e-12):
         ((n,) ndarray): An eigenvector corresponding to the dominant
             eigenvalue of A.
     """
-    raise NotImplementedError("Problem 5 Incomplete")
+    m, n = A.shape
+    x_0 = np.random.rand(n, 1)
+    x_0 = x_0 / np.linalg.norm(x_0)
+    for k in range(0,N):
+        x_0 = A@x_0
+        x_0 = x_0 / np.linalg.norm(x_0)
+    
+    return x_0.T@A@x_0, x_0
+    # raise NotImplementedError("Problem 5 Incomplete")
 
 
 # Problem 6
@@ -166,17 +226,40 @@ def qr_algorithm(A, N=50, tol=1e-12):
     Returns:
         ((n,) ndarray): The eigenvalues of A.
     """
-    raise NotImplementedError("Problem 6 Incomplete")
+    m, n = A.shape
+    S = la.hessenberg(A)
+    for k in range(0,N):
+        Q, R = la.qr(S)
+        S = R@Q
+        print(S.shape)
+    eigs = []
+    i = 0
+    while i<n:
+        print(S)
+        exit()
+    # raise NotImplementedError("Problem 6 Incomplete")
+    return eigs
 
 
 def main():
-    return
-
-if __name__ == "__main__":
     #Test prob1:
     # A = np.array([[1,1],[2,1],[3,1]])
     # b = np.array([2,4,6]) #x should return 2,0?
     # print(least_squares(A,b))
-    line_fit()
-    polynomial_fit()
+    # line_fit()
+    # polynomial_fit()
+    # ellipse_fit()
+    # A = np.random.random((10,10))
+    # print("A = {}".format(A))
+    # eigs, vecs = la.eig(A)
+    # loc = np.argmax(eigs)
+    # lamb, x = eigs[loc], vecs[:,loc]
+    # L, x_0 = power_method(A)
+    # print("\n== Eigenvalues ==\n",L,"?=", lamb)
+    # print("\n== Eigen Vectors ==\n",x_0.T,"\n?=\n",x)
+    A = np.random.random((2,2))
+    qr_algorithm(A+ A.T)
+    return
+
+if __name__ == "__main__":
     main()
