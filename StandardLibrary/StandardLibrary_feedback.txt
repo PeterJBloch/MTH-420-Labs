@@ -120,3 +120,24 @@ Total score: 40/50 = 80.0%
 
 -------------------------------------------------------------------------------
 
+05/27/22 17:26
+
+Problem 1 (10 points):
+Score += 10
+
+Problem 2 (10 points):
+Score += 10
+
+Problem 3 (10 points):
+AttributeError: module 'calculator' has no attribute 'product'
+
+Problem 4 (10 points):
+Score += 10
+
+Code Quality (10 points):
+Score += 10
+
+Total score: 40/50 = 80.0%
+
+-------------------------------------------------------------------------------
+

@@ -4,3 +4,9 @@ ModuleNotFoundError while loading 'lstsq_eigs.py': No module named 'MatplotlibIn
 
 -------------------------------------------------------------------------------
 
+05/27/22 17:29
+
+ModuleNotFoundError while loading 'lstsq_eigs.py': No module named 'MatplotlibIntro'
+
+-------------------------------------------------------------------------------
+
